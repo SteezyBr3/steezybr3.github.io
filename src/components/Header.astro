@@ -8,10 +8,10 @@ import { Icon } from "astro-icon/components";
   role="banner"
 >
   <nav
-    class="max-w-6xl mx-auto flex items-center justify-between gap-6"
+    class="max-w-6xl mx-auto relative flex items-center justify-between gap-6"
     aria-label="Main navigation"
   >
-    <a href="/" class="inline-flex items-center" aria-label="SXBouquet's - Home">
+    <a href="/" class="inline-flex items-center z-10" aria-label="SXBouquet's - Home">
       <img
         src="/logo.png"
         alt="Samantha's Flowers"
@@ -19,9 +19,17 @@ import { Icon } from "astro-icon/components";
       />
     </a>
 
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center pointer-events-none">
+      <img
+        src="/titlecard.png"
+        alt="S Bouquets title card"
+        class="h-16 w-auto object-contain"
+      />
+    </div>
+
     <button
       type="button"
-      class="md:hidden p-2 rounded-lg"
+      class="md:hidden p-2 rounded-lg z-10"
       style="color: var(--color-text);"
       aria-label="Toggle menu"
       aria-expanded="false"
@@ -31,7 +39,7 @@ import { Icon } from "astro-icon/components";
       <Icon name="tabler:menu-2" class="w-6 h-6" aria-hidden="true" />
     </button>
 
-    <ul class="hidden md:flex items-center gap-6" role="list">
+    <ul class="hidden md:flex items-center gap-6 z-10" role="list">
       <li>
         <a
           href="/bouquets"
@@ -64,6 +72,14 @@ import { Icon } from "astro-icon/components";
       </li>
     </ul>
   </nav>
+
+  <div class="md:hidden flex justify-center mt-3">
+    <img
+      src="/titlecard.png"
+      alt="S Bouquets title card"
+      class="h-14 w-auto object-contain"
+    />
+  </div>
 
   <div
     id="mobile-menu"
