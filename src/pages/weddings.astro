@@ -6,22 +6,9 @@ import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 
 const weddingImages = Array.from({ length: 16 }, (_, index) => ({
-  src: `/weddings/wedding-${index + 1}.jpg`,
+  src: `/weddings/wedding-${index + 1}.jpeg`,
   alt: `Wedding floral arrangement ${index + 1}`,
 }));
-
-const getSpanClass = (index: number) => {
-  const pattern = [
-    "editorial-span-wide",
-    "editorial-span-md",
-    "editorial-span-tall",
-    "editorial-span-md",
-    "editorial-span-lg",
-    "editorial-span-md",
-  ];
-
-  return pattern[index % pattern.length];
-};
 ---
 
 <Layout
@@ -48,16 +35,14 @@ const getSpanClass = (index: number) => {
         </div>
       </ScrollReveal>
 
-      <div class="editorial-gallery">
+      <div class="gallery-masonry">
         {weddingImages.map((image, index) => (
-          <ScrollReveal client:idle delay={Math.min(index * 0.025, 0.35)}>
-            <figure class={`editorial-card ${getSpanClass(index)}`}>
-              <img
-                src={image.src}
-                alt={image.alt}
-                loading="lazy"
-              />
-            </figure>
+          <ScrollReveal client:idle delay={Math.min(index * 0.025, 0.3)}>
+            <div class="gallery-masonry-item">
+              <figure>
+                <img src={image.src} alt={image.alt} loading="lazy" />
+              </figure>
+            </div>
           </ScrollReveal>
         ))}
       </div>
