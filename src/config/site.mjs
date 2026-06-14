@@ -7,5 +7,5 @@ export const SITE = {
   ogImage: "/og-image.png", // Add this image to your public folder
   // Web3Forms: Get your access key from https://web3forms.com
   // Leave empty to disable form submissions
-  // web3formsAccessKey: "", // e.g., "YOUR_ACCESS_KEY_HERE"
+  web3formsAccessKey: "50fa82e0-6c12-485d-bf3a-41266f12c1b2", // e.g., "YOUR_ACCESS_KEY_HERE"
 };
