@@ -9,6 +9,19 @@ const bouquetImages = Array.from({ length: 25 }, (_, index) => ({
   src: `/bouquets/bouquet-${index + 1}.jpg`,
   alt: `Bouquet arrangement ${index + 1}`,
 }));
+
+const getSpanClass = (index: number) => {
+  const pattern = [
+    "editorial-span-lg",
+    "editorial-span-md",
+    "editorial-span-tall",
+    "editorial-span-md",
+    "editorial-span-wide",
+    "editorial-span-md",
+  ];
+
+  return pattern[index % pattern.length];
+};
 ---
 
 <Layout
@@ -18,41 +31,37 @@ const bouquetImages = Array.from({ length: 25 }, (_, index) => ({
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-6xl mx-auto px-4 py-20">
+    <section class="max-w-7xl mx-auto px-4 py-20">
       <ScrollReveal client:idle>
         <h1 class="text-5xl font-bold mb-4" style="color: var(--color-text);">Bouquets</h1>
       </ScrollReveal>
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-lg md:text-xl max-w-3xl mb-12" style="color: var(--color-text-soft);">
-          Please feel free to send us a message with any questions or enquiries.
-          ALL orders are bespoke and there for each arrangement will always be slightly different.
-          Please note if you are sending a picture of a design you are after we will follow the design as best we can however we cannot guarantee it will be an exact match. 
-          This is due to the stock available from season to season and what is available to order / what is available on the day.
-          When placing your order we take full payment, unless a deposit has been agreed (deposits are NOT available on Shipping Orders) 
-          If a deposit has been taken the remaining balance will need to be paid before your Local Delivery is made or on / before Collection.
-          (unless cash has been confirmed)
-        </p>
+        <div class="max-w-5xl space-y-8 mb-14" style="color: var(--color-text-soft);">
+          <p class="text-lg md:text-xl leading-8">
+            Please feel free to send us a message with any questions or enquiries.
+            ALL orders are bespoke and there for each arrangement will always be slightly different.
+            Please note if you are sending a picture of a design you are after we will follow the design as best we can however we cannot guarantee it will be an exact match.
+            This is due to the stock available from season to season and what is available to order / what is available on the day.
+            When placing your order we take full payment, unless a deposit has been agreed (deposits are NOT available on Shipping Orders)
+            If a deposit has been taken the remaining balance will need to be paid before your Local Delivery is made or on / before Collection.
+            (unless cash has been confirmed)
+          </p>
 
-        <p class="text-lg md:text-xl max-w-3xl mb-12" style="color: var(--color-text-soft);">
-          Please note all of our bouquet orders are currently on a 48 hour turn around (this is dependent on seasons and other orders so is subject to change, if you need your arrangement within the 48 hour period or same day delivery please message us asap to see if we can book you in (an out of hours fee might be charged on your order)
-
-          Our bespoke Bouquets and Services are designed and carefully curated with a selection of fresh, vibrant, and fragrant seasonal blooms. Our Luxury hand-picked arrangements are available in a variety of styles and colours.
-        </p>
-        
+          <p class="text-lg md:text-xl leading-8">
+            Please note all of our bouquet orders are currently on a 48 hour turn around (this is dependent on seasons and other orders so is subject to change, if you need your arrangement within the 48 hour period or same day delivery please message us asap to see if we can book you in (an out of hours fee might be charged on your order)
+            Our bespoke Bouquets and Services are designed and carefully curated with a selection of fresh, vibrant, and fragrant seasonal blooms. Our Luxury hand-picked arrangements are available in a variety of styles and colours.
+          </p>
+        </div>
       </ScrollReveal>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="editorial-gallery">
         {bouquetImages.map((image, index) => (
-          <ScrollReveal client:idle delay={Math.min(index * 0.03, 0.45)}>
-            <figure
-              class="overflow-hidden rounded-2xl border shadow-sm transition duration-300 hover:shadow-lg"
-              style="background-color: var(--color-surface); border-color: var(--color-border);"
-            >
+          <ScrollReveal client:idle delay={Math.min(index * 0.02, 0.35)}>
+            <figure class={`editorial-card ${getSpanClass(index)}`}>
               <img
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                class="aspect-square w-full object-cover transition duration-300 hover:scale-105"
               />
             </figure>
           </ScrollReveal>
