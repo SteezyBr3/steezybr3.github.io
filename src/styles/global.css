@@ -78,7 +78,7 @@ main {
   border-radius: 1.75rem;
   padding: clamp(1.5rem, 4vw, 3rem);
   background: rgba(255, 253, 249, 0.74);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(7px);
   box-shadow: 0 10px 35px rgba(90, 69, 51, 0.08);
 }
 
