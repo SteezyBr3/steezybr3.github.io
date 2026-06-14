@@ -4,6 +4,17 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+
+const slideshowImages = [
+  "/bouquets/bouquet-1.jpg",
+  "/bouquets/bouquet-5.jpg",
+  "/bouquets/bouquet-9.jpg",
+  "/bouquets/bouquet-13.jpg",
+  "/weddings/wedding-1.jpg",
+  "/weddings/wedding-5.jpg",
+  "/weddings/wedding-9.jpg",
+  "/weddings/wedding-13.jpg",
+];
 ---
 
 <Layout
@@ -13,36 +24,49 @@ import { SITE } from "../config/site.mjs";
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-6xl mx-auto px-4 py-20 md:py-28">
-      <ScrollReveal client:load>
-        <div class="max-w-3xl">
-          <p class="uppercase tracking-[0.35em] text-sm mb-4" style="color: var(--color-accent);">
-            Samantha's Bouquets
-          </p>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: var(--color-text);">
-            Beautiful floral designs for every meaningful moment.
-          </h1>
-          <p class="text-xl md:text-2xl mb-8" style="color: var(--color-text-soft);">
-            Discover handcrafted bouquets, romantic wedding florals, and bespoke arrangements made to brighten every occasion.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a
-              href="/bouquets"
-              class="inline-flex items-center justify-center px-8 py-3 rounded-lg font-medium transition-colors"
-              style="background-color: var(--color-accent); color: white;"
-            >
-              View Bouquets
-            </a>
-            <a
-              href="/weddings"
-              class="inline-flex items-center justify-center px-8 py-3 rounded-lg border font-medium transition-colors"
-              style="border-color: var(--color-border); color: var(--color-text); background-color: var(--color-surface);"
-            >
-              Explore Weddings
-            </a>
-          </div>
+    <section class="home-showcase-shell max-w-7xl mx-auto">
+      <div class="home-showcase-frame">
+        <div class="home-showcase-backdrop" aria-hidden="true">
+          {slideshowImages.map((image, index) => (
+            <div
+              class="home-showcase-slide"
+              style={`background-image: url('${image}'); animation-delay: ${index * 4}s;`}
+            ></div>
+          ))}
         </div>
-      </ScrollReveal>
+
+        <div class="home-showcase-content">
+          <ScrollReveal client:load>
+            <div class="home-showcase-panel">
+              <p class="uppercase tracking-[0.35em] text-sm mb-4" style="color: var(--color-accent);">
+                Samantha's Bouquets
+              </p>
+              <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: var(--color-text);">
+                Beautiful floral designs for every meaningful moment.
+              </h1>
+              <p class="text-xl md:text-2xl mb-8" style="color: var(--color-text-soft);">
+                Discover handcrafted bouquets, romantic wedding florals, and bespoke arrangements made to brighten every occasion.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/bouquets"
+                  class="inline-flex items-center justify-center px-8 py-3 rounded-lg font-medium transition-colors"
+                  style="background-color: var(--color-accent); color: white;"
+                >
+                  View Bouquets
+                </a>
+                <a
+                  href="/weddings"
+                  class="inline-flex items-center justify-center px-8 py-3 rounded-lg border font-medium transition-colors"
+                  style="border-color: var(--color-border); color: var(--color-text); background-color: rgba(255, 253, 249, 0.92);"
+                >
+                  Explore Weddings
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
     </section>
   </main>
   <Footer />
