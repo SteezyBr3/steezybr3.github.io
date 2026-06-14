@@ -1,6 +1,31 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --color-header: #bdac9c;
+  --color-page: #f7f2eb;
+  --color-surface: #fffdf9;
+  --color-surface-strong: #f3ece3;
+  --color-text: #3f342b;
+  --color-text-soft: #6b5b4f;
+  --color-border: #d8cabc;
+  --color-accent: #8a6f56;
+  --color-accent-dark: #705844;
+}
+
+html {
+  background-color: var(--color-page);
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-text);
+}
+
+main {
+  background-color: var(--color-page);
+}
+
 /* Accessibility: Skip to content link */
 .sr-only {
   position: absolute;
