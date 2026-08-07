@@ -1,5 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  instagramUrl?: string;
+}
+
+const { instagramUrl = "https://www.instagram.com/" } = Astro.props;
 ---
 
 <header
@@ -70,6 +76,18 @@ import { Icon } from "astro-icon/components";
           Contact
         </a>
       </li>
+      <li>
+        <a
+          href="https://www.instagram.com/sxbouquets?igsh=MWwyejMxbndxczJ5cQ%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center transition-colors"
+          style="color: var(--color-text);"
+          aria-label="Visit our Instagram page"
+        >
+          <Icon name="tabler:brand-instagram" class="w-6 h-6" aria-hidden="true" />
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -120,6 +138,19 @@ import { Icon } from "astro-icon/components";
           aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}
         >
           Contact
+        </a>
+      </li>
+      <li>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-3 transition-colors"
+          style="color: var(--color-text);"
+          role="menuitem"
+        >
+          <Icon name="tabler:brand-instagram" class="w-5 h-5" aria-hidden="true" />
+          Instagram
         </a>
       </li>
     </ul>
