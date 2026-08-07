@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ScrollReveal from "../components/ScrollReveal";
+import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 
 const slideshowImages = [
@@ -32,7 +32,7 @@ const slideshowImages = [
               class="home-showcase-slide"
               style={`background-image: url('${image}'); animation-delay: ${index * 4}s;`}
             ></div>
-          ))}  
+          ))}
         </div>
 
         <div class="home-showcase-content">
@@ -45,7 +45,7 @@ const slideshowImages = [
                 Bespoke Floral Design By Samantha at S Bouquets.
               </h1>
               <p class="text-xl md:text-2xl mb-8" style="color: var(--color-text-soft);">
-                Luxury Bespoke Floral Bouquets for any Occasion. 
+                Luxury Bespoke Floral Bouquets for any Occasion.
                 Timeless Wedding Florals thoughtfully designed to make your special day unforgettable.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">

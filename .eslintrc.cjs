@@ -9,8 +9,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:astro/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -22,8 +20,6 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "react"],
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -39,6 +35,14 @@ module.exports = {
       parserOptions: {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
+      },
+    },
+    {
+      files: ["*.jsx", "*.tsx"],
+      extends: ["plugin:react/recommended", "plugin:react-hooks/recommended"],
+      rules: {
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
       },
     },
   ],
