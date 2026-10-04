@@ -58,6 +58,16 @@ const { instagramUrl = "https://www.instagram.com/" } = Astro.props;
       </li>
       <li>
         <a
+          href="/add-ons"
+          class="transition-colors"
+          style="color: var(--color-text);"
+          aria-current={Astro.url.pathname === '/add-ons' ? 'page' : undefined}
+        >
+          Add-Ons
+        </a>
+      </li>
+      <li>
+        <a
           href="/weddings"
           class="transition-colors"
           style="color: var(--color-text);"
@@ -116,6 +126,17 @@ const { instagramUrl = "https://www.instagram.com/" } = Astro.props;
           aria-current={Astro.url.pathname === '/bouquets' ? 'page' : undefined}
         >
           Bouquets
+        </a>
+      </li>
+      <li>
+        <a
+          href="/add-ons"
+          class="block px-4 py-3 transition-colors"
+          style="color: var(--color-text);"
+          role="menuitem"
+          aria-current={Astro.url.pathname === '/add-ons' ? 'page' : undefined}
+        >
+          Add-Ons
         </a>
       </li>
       <li>
